@@ -1,0 +1,101 @@
+
+.list-section {
+    background-color: $lightest-purple;
+    width: 100vw;
+    min-height: 93vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.add-task-form-div {
+width: 98vw;
+max-width: 400px;
+padding: 0.5em;
+display: flex;
+flex-direction: column;
+margin-top: 2vh;
+border: 1px solid $dark-purple;
+background-color: $light-contrast;
+    form {
+        width: 100%;
+        input: {
+            border: none;
+            padding: 0.25em;
+        }
+        button{
+            background-color: $mid-purple;
+            color: white;
+            border: none;
+            padding: 0.25em;
+        }
+        button:hover{
+            color: $dark-purple;
+            background-color: white;
+            border: 1px solid $dark-purple;
+        }
+    }
+}
+
+.task-div {
+    width: 98vw;
+    max-width: 400px;
+    background-color: $lightest-contrast;
+    padding: 0.5em;
+    border: 1px solid $mid-contrast;
+    margin-top: 1em;
+    border-radius: 0.25em;
+    ul {
+        padding: 0.25em;
+        li {
+            padding: 0.25em;
+            margin-top:0.25em;
+            margin-bottom: 0.5em;
+            border-top: 1px dotted $mid-contrast;
+            background-color: white;
+            border-radius: 0.25em;
+            display: block;
+            button {
+                margin-left: 3px;
+                margin-right: 3px;
+            }
+            .delete-btn {
+                background-color:darkred;
+                color: white;
+                border: none;
+                padding: 0.25em;
+            }
+            .delete-btn:hover {
+                background-color: red;
+            }
+            .toggle-edit-btn {
+                background-color: seagreen;
+                color: white;
+                border: none;
+                padding: 0.25em;
+            }
+            .toggle-edit-btn:hover {
+                background-color: lightseagreen;
+            }
+        }
+    }
+}
+
+@media (min-width: 265px){
+    .add-task-form-div{
+        form {
+            label{
+                display: block
+            };
+            input{
+                width: 80%;
+                max-width: 340px;
+                padding: 0.4em;
+            }
+            button{
+                padding: 0.5em;
+            }
+        }
+    }
+}

@@ -33,7 +33,7 @@ class AddTaskForm extends Block {
     let addTaskFormDiv = document.createElement("div");
     addTaskFormDiv.setAttribute("id", "addTaskFormDiv");
     addTaskFormDiv.classList.add("add-task-form-div");
-    this.Form(this.consolidateProps(addTaskFormProps), addTaskFormDiv);
+    this.Form(addTaskFormProps, addTaskFormDiv);
     return addTaskFormDiv;
   }
 }

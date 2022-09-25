@@ -6,7 +6,6 @@ class Block extends Base {
   }
 }
 Block.prototype.Input = function (props, form) {
-  this.consolidateProps(props);
   props.inputs.forEach((item) => {
     if (item.label) {
       let label = document.createElement("label");
@@ -22,7 +21,7 @@ Block.prototype.Input = function (props, form) {
     item.value ? (input.value = item.value) : null;
     item.required ? (input.required = item.required) : null;
     input.placeholder ? (input.placeholder = item.placeholder) : null;
-    if (item.label) { 
+    if (item.label) {
       form.append(input);
       return this;
     } else {
@@ -31,14 +30,13 @@ Block.prototype.Input = function (props, form) {
     }
   });
 };
-Block.prototype.Btn = function (props, elem) {
-  let btns
-  if(Array.isArray(props)){
-    btns = props
+Block.prototype.Btn = function (props, elem, value) {
+  let btns;
+  if (Array.isArray(props)) {
+    btns = props;
   } else {
-    btns = props.btns
+    btns = props.btns;
   }
-  this.consolidateProps(props);
   btns.forEach((item) => {
     let btn = document.createElement("button");
     item.type
@@ -46,19 +44,17 @@ Block.prototype.Btn = function (props, elem) {
       : btn.setAttribute("type", "button");
     item.id ? btn.setAttribute("id", item.id) : null;
     item.class ? btn.setAttribute("class", item.class) : null;
-    item.handleClick && item.value
-      ? btn.addEventListener("click", () => item.handleClick(item.value))
+    item.handleClick
+      ? btn.addEventListener("click", () => item.handleClick(value))
       : null;
-    item.handleClick && !item.value
-      ? btn.addEventListener("click", item.handleClick)
-      : null;
-    item.toggleText ? (btn.innerText = item.text2) : (btn.innerText = item.text1);
+    item.toggleText
+      ? (btn.innerText = item.text2)
+      : (btn.innerText = item.text1);
     elem.append(btn);
   });
   return this;
 };
 Block.prototype.Form = function (props, elem) {
-  this.consolidateProps(props);
   elem.innerHTML = "";
   let form = document.createElement("form");
   props.FormId ? form.setAttribute("id", props.formId) : null;
@@ -70,27 +66,25 @@ Block.prototype.Form = function (props, elem) {
   return this;
 };
 Block.prototype.EditableList = function (props, elem) {
-  this.consolidateProps(props);
   elem.innerHTML = "";
   let ul = document.createElement("ul");
+  elem.append(ul);
   props.listItems.forEach((item) => {
     let li = document.createElement("li");
-    if (this.state.isEdit) {
+    if (props.isEdit && props.editId === item._id) {
       this.Form(props, li);
     } else if (props.listBtns) {
-      li.innerText = item.task
-      let btns = props.listBtns
-      this.Btn(btns, li);
+      li.innerText = item.task;
+      let btns = props.listBtns;
+      this.Btn(btns, li, item);
     } else {
       li.innerText = item.text;
     }
     ul.append(li);
   });
-  elem.append(ul);
   return this;
 };
 Block.prototype.Modal = function (props, elem) {
-  this.consolidateProps(props);
   elem.innerHTML = "";
   let modal = document.createElement("modal");
   props.modalId ? modal.setAttribute("id", props.modalId) : null;

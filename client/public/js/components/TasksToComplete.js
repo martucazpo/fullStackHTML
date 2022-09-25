@@ -1,39 +1,26 @@
 import Block from "../library/Block.js";
 
 class TasksToComplete extends Block {
-  constructor(props, userId) {
+  constructor(props, userId, list) {
     super(props);
-    this.state = {
-      isEdit: false,
-      editTask: "",
-      editId: "",
-      tasks: props.list || [],
-    };
-    this.props = props
+    this.props = props;
     this.userId = userId;
+    this.list = list;
     this.makeTaskList = this.makeTaskList.bind(this);
-    this.handleEditTask = this.handleEditTask.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
-    this.handleEditToggle = this.handleEditToggle.bind(this);
   }
-  handleEditTask(e) {
-    e.preventDefault();
-  }
-  handleDelete(id) {}
-  handleEditToggle(id) {}
   makeTaskList(props) {
     let taskDiv = document.createElement("div");
     taskDiv.classList.add("task-div");
     taskDiv.setAttribute("id", "taskDiv");
     let listProps = {
-      listItems: props.list.todos,
+      listItems: this.list,
       inputs: [
         {
           label: true,
           labelText: "Edit Task",
           id: "editTask",
           name: "editTask",
-          value: this.state.editTask,
+          value: props.editTask,
           required: true,
           handleInput: props.handleInput,
         },
@@ -44,19 +31,19 @@ class TasksToComplete extends Block {
           id: "editFormBtn",
           class: "edit-form-btn",
           toggleText: false,
-          text1: false,
+          text1: "CHANGE",
         },
       ],
       id: "EditTaskForm",
       formClass: "edit-task-form",
-      handleSubmit: this.handleEditTask,
+      handleSubmit: props.handleEditTask,
       listBtns: [
         {
           id: "deleteBtn",
           class: "delete-btn",
           toggleText: false,
           text1: "DELETE",
-          handleClick: this.handleDelete,
+          handleClick: props.handleDelete,
           value: this.userId,
         },
         {
@@ -64,9 +51,12 @@ class TasksToComplete extends Block {
           class: "toggle-edit-btn",
           toggleText: false,
           text1: "EDIT",
-          handleClick: this.handleEditToggle,
+          handleClick: props.handleEditToggle,
         },
       ],
+      isEdit: props.isEdit,
+      editTask: props.editTask,
+      editId: props.editId,
     };
     this.EditableList(listProps, taskDiv);
     return taskDiv;

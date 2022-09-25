@@ -20,6 +20,39 @@ export const createTask = async (data) =>{
         body: JSON.stringify(data) 
       })
       const vari = await call.json()
-      console.log(vari)
       return vari
+}
+
+export const deleteTask = async (data) =>{
+  const call = await fetch(listURL + "/deletetask", {
+     method: 'POST',
+     mode: 'cors', 
+     cache: 'no-cache',
+     credentials: 'same-origin', 
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     redirect: 'follow', 
+     referrerPolicy: 'no-referrer', 
+     body: JSON.stringify(data) 
+   })
+   const vari = await call.json()
+   return vari
+}
+
+export const updateTask = async (data) =>{
+  const call = await fetch(listURL + "/updatetask", {
+     method: 'POST',
+     mode: 'cors', 
+     cache: 'no-cache',
+     credentials: 'same-origin', 
+     headers: {
+       'Content-Type': 'application/json'
+     },
+     redirect: 'follow', 
+     referrerPolicy: 'no-referrer', 
+     body: JSON.stringify(data) 
+   })
+   const vari = await call.json()
+   return vari
 }
