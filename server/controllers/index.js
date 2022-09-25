@@ -6,4 +6,6 @@ module.exports = {
     testAuth : authControllers.sayHello,
     testCreateUser: authControllers.testCreateUser,
     makeTask: todoListControllers.makeTask,
+    deleteTask: todoListControllers.deleteTask,
+    updateTask: todoListControllers.editTask,
 }
