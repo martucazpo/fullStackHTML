@@ -2,8 +2,8 @@ const todoListControllers = require("./todoListControllers")
 const authControllers = require("./authControllers")
 
 module.exports = {
-    testList : todoListControllers.sayHi,
+    getList : todoListControllers.findUserList,
     testAuth : authControllers.sayHello,
     testCreateUser: authControllers.testCreateUser,
-    testMakeTask: todoListControllers.makeTestTask,
+    makeTask: todoListControllers.makeTask,
 }

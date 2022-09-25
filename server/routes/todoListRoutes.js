@@ -2,8 +2,8 @@ const router = require("express").Router()
 const controllers = require("../controllers")
 
 router.route("/")
-.get(controllers.testList)
-router.route("/test")
-.post(controllers.testMakeTask)
+.post(controllers.makeTask)
+router.route("/retrieve/:_id")
+.get(controllers.getList)
 
 module.exports = router

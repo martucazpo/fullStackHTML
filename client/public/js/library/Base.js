@@ -12,16 +12,16 @@ Base.prototype.consolidateProps = function (newProps = {}) {
   return this.props;
 };
 Base.prototype.setStateToProps = function (state) {
-  this.props = Object.assign(consolidateProps(state));
+  this.props = Object.assign(this.consolidateProps(state));
   return this.props;
 };
 Base.prototype.setState = function (...args) {
   if (typeof args[0] === "object") {
     let newState = args[0];
-    let prevState = state;
-    state = Object.assign({}, prevState, newState);
-    this.setStateToProps({ state });
-    return state;
+    let prevState = this.state;
+    this.state = Object.assign({}, prevState, newState);
+    this.setStateToProps({ state:this.tate });
+    return this.state;
   } else if (typeof args[0] === "function") {
     return (function (condition) {
       let newState = args[0](condition);
@@ -32,16 +32,6 @@ Base.prototype.setState = function (...args) {
     return this;
   }
 };
-Base.prototype.anchorToDOM = function (elem, root) {
-  root.innerHTML = "";
-  let div = document.createElement("div");
-  div.appendChild(elem);
-  root.append(div);
-  return this;
-};
-Base.prototype.anchorToElement = function (elem, hostElem) {
-  hostElem.append(elem);
-  return this;
-};
+
 
 export default Base;
