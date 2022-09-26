@@ -15,7 +15,7 @@ Base.prototype.setState = function (...args) {
     return (function (condition) {
       let newState = args[0](condition);
       return this.setState(newState);
-    })(this.state);
+    }).bind(this)(this.state);
   } else {
     console.error("State must be a type Object or a function");
     return this;

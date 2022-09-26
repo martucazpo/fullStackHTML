@@ -11,3 +11,12 @@ ul {
 a {
     text-decoration: none;
 }
+
+.hidden {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -2000px;
+    visibility: hidden;
+    display: none;
+}

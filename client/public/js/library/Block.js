@@ -63,7 +63,7 @@ Block.prototype.Form = function (props, elem) {
   this.Input(props, form);
   this.Btn(props, form);
   elem.append(form);
-  return this;
+  return elem
 };
 Block.prototype.EditableList = function (props, elem) {
   elem.innerHTML = "";
@@ -84,15 +84,15 @@ Block.prototype.EditableList = function (props, elem) {
   });
   return this;
 };
-Block.prototype.Modal = function (props, elem) {
-  elem.innerHTML = "";
-  let modal = document.createElement("modal");
+Block.prototype.Modal = function (props, elems) {
+  let modal = document.createElement("div");
   props.modalId ? modal.setAttribute("id", props.modalId) : null;
   props.modalClass ? modal.classList.add(props.modalClass) : null;
   props.toggleModalBtnProps ? this.Btn(props.toggleModalBtnProps, modal) : null;
-  modal.appendChild(props.modalContent);
-  elem.append(modal);
-  return this;
+  elems.forEach(elem =>modal.append(elem))
+  props.toggleFormBtn ? this.Btn(props.toggleFormBtn, modal) : null
+  return modal;
+  //return this;
 };
 
 export default Block;

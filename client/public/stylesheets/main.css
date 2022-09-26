@@ -12,6 +12,42 @@ a {
   text-decoration: none;
 }
 
+.hidden {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -2000px;
+  visibility: hidden;
+  display: none;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+header {
+  width: 100vw;
+  height: 7vh;
+  background-color: rgb(24, 1, 24);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1em;
+}
+header button {
+  background-color: white;
+  color: rgb(24, 1, 24);
+  border: none;
+  border-radius: 17%;
+  padding: 0.25em;
+}
+header button:hover {
+  background-color: rgb(100, 57, 100);
+  color: white;
+  border: 2px solid white;
+}
+
 .list-section {
   background-color: rgb(244, 234, 244);
   width: 100vw;
@@ -106,29 +142,14 @@ a {
     padding: 0.5em;
   }
 }
-body {
+.login-section {
   width: 100vw;
-  min-height: 100vh;
+  min-height: 93vh;
+  background-color: rgb(239, 232, 223);
 }
-
-header {
-  width: 100vw;
-  height: 7vh;
-  background-color: rgb(24, 1, 24);
+.login-section header {
+  background-color: inherit;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 1em;
-}
-header button {
-  background-color: white;
-  color: rgb(24, 1, 24);
-  border: none;
-  border-radius: 17%;
-  padding: 0.25em;
-}
-header button:hover {
-  background-color: rgb(100, 57, 100);
-  color: white;
-  border: 2px solid white;
 }/*# sourceMappingURL=main.css.map */
