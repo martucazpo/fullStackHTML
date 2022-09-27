@@ -3,6 +3,9 @@
     width: 100vw;
     min-height: 93vh;
     background-color: $lightest-contrast;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     header{
         background-color: inherit;
         display: flex;

@@ -1,0 +1,48 @@
+
+
+.reg-log-modal {
+    width: 100vw;
+    max-width: 300px;
+    min-height: 150px;
+    border: 2px solid $mid-contrast;
+    background-color: $lightest-contrast;
+    border-radius: 0.75em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    .toggle-modal-btn{
+        align-self: flex-end;
+        border-radius: 50%;
+        border: 1px dotted $light-contrast;
+        padding: 0.5em;
+    }
+    .toggle-modal-btn:hover {
+        background-color: $mid-contrast;
+        color: white;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        input {
+            padding: 0.25em 0em;
+        }
+        button {
+            margin-top: 0.5em;
+            background-color: $dark-contrast;
+            color: white;
+            padding: 0.5em 0em;
+        }
+        button:hover {
+            background-color: $mid-contrast;
+        }
+    }
+    .toggle-form-btn {
+        padding: 0.25em;
+        border: 1px solid $mid-contrast;
+    }
+    .toggle-form-btn:hover {
+        background-color: $light-contrast;
+    }
+}

@@ -21,6 +21,53 @@ a {
   display: none;
 }
 
+.reg-log-modal {
+  width: 100vw;
+  max-width: 300px;
+  min-height: 150px;
+  border: 2px solid rgb(164, 135, 96);
+  background-color: rgb(239, 232, 223);
+  border-radius: 0.75em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+.reg-log-modal .toggle-modal-btn {
+  align-self: flex-end;
+  border-radius: 50%;
+  border: 1px dotted rgb(244, 227, 204);
+  padding: 0.5em;
+}
+.reg-log-modal .toggle-modal-btn:hover {
+  background-color: rgb(164, 135, 96);
+  color: white;
+}
+.reg-log-modal form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+.reg-log-modal form input {
+  padding: 0.25em 0em;
+}
+.reg-log-modal form button {
+  margin-top: 0.5em;
+  background-color: rgb(44, 35, 25);
+  color: white;
+  padding: 0.5em 0em;
+}
+.reg-log-modal form button:hover {
+  background-color: rgb(164, 135, 96);
+}
+.reg-log-modal .toggle-form-btn {
+  padding: 0.25em;
+  border: 1px solid rgb(164, 135, 96);
+}
+.reg-log-modal .toggle-form-btn:hover {
+  background-color: rgb(244, 227, 204);
+}
+
 body {
   width: 100vw;
   min-height: 100vh;
@@ -146,6 +193,9 @@ header button:hover {
   width: 100vw;
   min-height: 93vh;
   background-color: rgb(239, 232, 223);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .login-section header {
   background-color: inherit;

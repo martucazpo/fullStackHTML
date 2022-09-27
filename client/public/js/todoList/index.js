@@ -8,7 +8,7 @@ class TodoList extends Block {
     super();
     this.state = {
       task: "",
-      tasks: list.todos,
+      tasks: list,
       isEdit: false,
       editTask: "",
       editId: "",
